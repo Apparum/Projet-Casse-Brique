@@ -66,5 +66,8 @@ void Puck::init(){
 }
 
 void Puck::setdX(float dx){
-    if (dx >= 3 && dx <= 20) dx_ = dx;
+    if (dx >= 3 && dx <= 20){
+        x_ = -dx/2;
+        dx_ = dx;
+    }
 }

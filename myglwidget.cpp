@@ -50,10 +50,14 @@ void MyGLWidget::initGame(){
             bricks.push_back(Brick(x,y,R,G,B));
         }
     }
+    generateLevel(1);
     ball_.init();
     puck_.init();
+    ball_.setVx(ball_.getVx()*(level+10)/10);
+    ball_.setVy(ball_.getVy()*(level+10)/10);
     livesLeft = 3;
-    average = 0;
+    averageX = 0;
+    averageY = 0;
 }
 // Fonction d'initialisation
 void MyGLWidget::initializeGL()
@@ -94,7 +98,7 @@ void MyGLWidget::paintGL()
     // Camera setup
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(0.5f, 0.5f, 10.0f, 0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+    gluLookAt(0.5f, 1.0f, 10.0f, 0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f);
     // Display & Bounce
     QFont font("Monotype Corsiva", 16);
     if (gameState == 0){ // Playing
@@ -139,7 +143,7 @@ void MyGLWidget::paintGL()
             float color[] = {1.0,0.0,0.0};
             glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
             glPushMatrix();
-            glTranslatef(x-6.3,11.5,4);
+            glTranslatef(x-6.3,12.5,4);
             gluSphere(tmpQuad,0.5,20,20);
             glPopMatrix();
             gluDeleteQuadric(tmpQuad);
@@ -152,7 +156,7 @@ void MyGLWidget::paintGL()
         str = "Level : " + QString::number(level);
         renderText(-2, 10.8, -4, str, font);
         str = "Score : " + QString::number(score);
-        renderText(5, 10.8, -4, str, font);
+        renderText(7, 10.8, -4, str, font);
     }
     else if (gameState == 3){ // perdu
         QString str("You lose !");
@@ -180,7 +184,7 @@ void MyGLWidget::updateGame(){
     // Rebond puck_
     if (animationTimer.isActive()){
         if((ball_.getY() - ball_.getR()) < (puck_.getY()+puck_.getdY()) && (ball_.getX() + ball_.getR()) > puck_.getX() && (ball_.getX() - ball_.getR()) < (puck_.getX() + puck_.getdX())) bouncePuck();
-        puck_.move(average/50);
+        puck_.move(averageX/50);
         if(ball_.getX()-ball_.getR()< -13 || ball_.getX()+ball_.getR() > 14) ball_.setVx(-ball_.getVx()); //Rebond sur mur gauche droite
         if(ball_.getY()+ball_.getR() > 10.5) ball_.setVy(-ball_.getVy()); //Rebond sur mur haut
         if(ball_.getY() < puck_.getY()){
@@ -194,11 +198,24 @@ void MyGLWidget::updateGame(){
         }
         ball_.move();
         if (vectX.size() > 60){
-            average = accumulate( vectX.begin(), vectX.end(), 0.0)/vectX.size();
+            averageX = accumulate( vectX.begin(), vectX.end(), 0.0)/vectX.size();
             vectX.erase(vectX.begin(), vectX.begin() + 40);
         }
         else {
             vectX.push_back(vect_.x);
+        }
+        if (vectY.size() > 60){
+            averageY = accumulate( vectY.begin(), vectY.end(), 0.0)/vectY.size();
+            vectY.erase(vectY.begin(), vectY.begin() + 40);
+        }
+        else {
+            vectY.push_back(vect_.y);
+        }
+        // Inutile, dégrade la qualité du jeu mais présent dans le cahier des charges, "if" à commenter pour améliorer le jeu.
+        if (abs(averageY) > 3*abs(averageX)) {
+            qDebug() << averageY << "    " << averageX;
+            averageX = 0;
+            averageY = 0;
         }
         if (livesLeft == 0) gameState = 1;
         if (bricks.size() == 0) gameState = 2;
@@ -209,8 +226,8 @@ void MyGLWidget::updateGame(){
 
 void MyGLWidget::bouncePuck(){
     float alpha = atan(ball_.getX()-(puck_.getX()+puck_.getdX()/2));
-    ball_.setVy(cos(alpha)/8);
-    ball_.setVx(sin(alpha)/8);
+    ball_.setVy((cos(alpha)/8)*(level+10)/10);
+    ball_.setVx((sin(alpha)/8)*(level+10)/10);
 }
 
 void MyGLWidget::bounceBrick(int dir) {
@@ -283,4 +300,46 @@ void MyGLWidget::displayWall(float x1, float dx, float y1, float dy, float color
     glVertex3f(x1+dx,y1,0+dz);
 
     glEnd();
+}
+
+void MyGLWidget::generateLevel(int levelNb){
+    if (levelNb == 1){
+        bricks.erase(bricks.begin()+2);
+        bricks.erase(bricks.begin()+2);
+        bricks.erase(bricks.begin()+2);
+        bricks.erase(bricks.begin()+4);
+        bricks.erase(bricks.begin()+4);
+        bricks.erase(bricks.begin()+4);
+        bricks.erase(bricks.begin()+6);
+        bricks.erase(bricks.begin()+6);
+        bricks.erase(bricks.begin()+6);
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+8);
+
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+11);
+        bricks.erase(bricks.begin()+11);
+        bricks.erase(bricks.begin()+14);
+        bricks.erase(bricks.begin()+14);
+        bricks.erase(bricks.begin()+17);
+        bricks.erase(bricks.begin()+17);
+
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+24);
+        bricks.erase(bricks.begin()+24);
+        bricks.erase(bricks.begin()+24);
+        bricks.erase(bricks.begin()+26);
+        bricks.erase(bricks.begin()+26);
+        bricks.erase(bricks.begin()+26);
+        bricks.erase(bricks.begin()+28);
+        bricks.erase(bricks.begin()+28);
+        bricks.erase(bricks.begin()+28);
+    }
+    else if(levelNb == 2){
+
+    }
 }

@@ -60,8 +60,9 @@ void Breakout::getCamPic(){
     double minVal; double maxVal; Point minLoc; Point maxLoc;
     minMaxLoc( resultImage, &minVal, &maxVal, &minLoc, &maxLoc);
     vect_.x = maxLoc.x-templateRect.x;
+    vect_.y = maxLoc.y-templateRect.y;
     rectangle(frame2,workingRect,Scalar( 0, 255, 0),2);;
-    Point p(workingCenter.x+vect_.x,workingCenter.y);
+    Point p(workingCenter.x+vect_.x,workingCenter.y+vect_.y);
     arrowedLine(frame2,workingCenter,p,Scalar(255,255,255),2);
     swap(frameRect1,frameRect2);
     ui->labelCam->setPixmap(QPixmap::fromImage(QImage(frame2.data, frame2.cols, frame2.rows,frame2.step, QImage::Format_RGB888)));

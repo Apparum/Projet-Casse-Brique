@@ -32,6 +32,7 @@ public:
     void initGame();
     void bouncePuck();
     void bounceBrick(int dir);
+    void generateLevel(int level);
 
     //Accesseurs
     void setVect(Point vect){vect_ = vect;}
@@ -57,13 +58,13 @@ private:
     Ball ball_;
     Puck puck_;
     Point vect_;
-    std::vector<float> vectX;
+    std::vector<float> vectX, vectY;
     std::vector<Brick> bricks;
     int gameState = 0; // 0 : Playing, 1 : Lose, 2 : Win, 3 : Lose Transition, 4 : Win Transition, 5 : Ready for Restart
     int score = 0;
     int level = 1;
     int livesLeft;
-    float average = 0;
+    float averageX = 0, averageY = 0;
 };
 
 #endif // MYGLWIDGET_H

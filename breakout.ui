@@ -89,14 +89,14 @@
         <item>
          <widget class="QPushButton" name="decreasePuckSize">
           <property name="text">
-           <string>-1</string>
+           <string>Decrease puck size</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="increasePuckSize">
           <property name="text">
-           <string>+1</string>
+           <string>Increase puck size</string>
           </property>
          </widget>
         </item>
