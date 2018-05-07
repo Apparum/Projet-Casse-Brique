@@ -290,7 +290,7 @@ void MyGLWidget::displayWall(float x1, float dx, float y1, float dy, float color
 void MyGLWidget::generateLevel(int levelNb){
     if (levelNb < 1) levelNb = 1;
     level = levelNb;
-    if (levelNb > 2) levelNb = levelNb%2;
+    if (levelNb > 7) levelNb = levelNb%7 + 1;
     bricks.clear();
     for (float x = -12.5; x < 12; x+=2.2){
         for (float y = 2.0; y < 10; y+=1.7){
@@ -313,65 +313,133 @@ void MyGLWidget::generateLevel(int levelNb){
         bricks.erase(bricks.begin()+4);
         bricks.erase(bricks.begin()+4);
         bricks.erase(bricks.begin()+4);
-        bricks.erase(bricks.begin()+6);
-        bricks.erase(bricks.begin()+6);
-        bricks.erase(bricks.begin()+6);
-        bricks.erase(bricks.begin()+8);
-        bricks.erase(bricks.begin()+8);
-        bricks.erase(bricks.begin()+8);
-
-        bricks.erase(bricks.begin()+8);
-        bricks.erase(bricks.begin()+8);
-        bricks.erase(bricks.begin()+11);
-        bricks.erase(bricks.begin()+11);
-        bricks.erase(bricks.begin()+14);
-        bricks.erase(bricks.begin()+14);
-        bricks.erase(bricks.begin()+17);
-        bricks.erase(bricks.begin()+17);
-
-        bricks.erase(bricks.begin()+22);
-        bricks.erase(bricks.begin()+22);
-        bricks.erase(bricks.begin()+22);
-        bricks.erase(bricks.begin()+24);
-        bricks.erase(bricks.begin()+24);
-        bricks.erase(bricks.begin()+24);
-        bricks.erase(bricks.begin()+26);
-        bricks.erase(bricks.begin()+26);
-        bricks.erase(bricks.begin()+26);
-        bricks.erase(bricks.begin()+28);
-        bricks.erase(bricks.begin()+28);
-        bricks.erase(bricks.begin()+28);
-    }
-    else if(levelNb == 2){
-        bricks.erase(bricks.begin()+0);
-        bricks.erase(bricks.begin()+1);
-        bricks.erase(bricks.begin()+2);
-        bricks.erase(bricks.begin()+3);
-        bricks.erase(bricks.begin()+4);
-        bricks.erase(bricks.begin()+5);
-        bricks.erase(bricks.begin()+6);
         bricks.erase(bricks.begin()+7);
-        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+7);
         bricks.erase(bricks.begin()+9);
         bricks.erase(bricks.begin()+10);
         bricks.erase(bricks.begin()+11);
-        bricks.erase(bricks.begin()+12);
-        bricks.erase(bricks.begin()+13);
         bricks.erase(bricks.begin()+14);
-        bricks.erase(bricks.begin()+15);
-        bricks.erase(bricks.begin()+16);
-        bricks.erase(bricks.begin()+17);
         bricks.erase(bricks.begin()+18);
-        bricks.erase(bricks.begin()+19);
-        bricks.erase(bricks.begin()+20);
-        bricks.erase(bricks.begin()+21);
-        bricks.erase(bricks.begin()+22);
         bricks.erase(bricks.begin()+23);
-        bricks.erase(bricks.begin()+24);
-        bricks.erase(bricks.begin()+25);
-        bricks.erase(bricks.begin()+26);
-        bricks.erase(bricks.begin()+27);
         bricks.erase(bricks.begin()+28);
         bricks.erase(bricks.begin()+29);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+34);
+        bricks.erase(bricks.begin()+34);
+        bricks.erase(bricks.begin()+34);
+        bricks.erase(bricks.begin()+36);
+        bricks.erase(bricks.begin()+36);
+        bricks.erase(bricks.begin()+36);
+    }
+    else if(levelNb == 2){
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+3);
+        bricks.erase(bricks.begin()+4);
+        bricks.erase(bricks.begin()+5);
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+11);
+        bricks.erase(bricks.begin()+12);
+        bricks.erase(bricks.begin()+15);
+        bricks.erase(bricks.begin()+18);
+        bricks.erase(bricks.begin()+19);
+        bricks.erase(bricks.begin()+21);
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+25);
+        bricks.erase(bricks.begin()+28);
+        bricks.erase(bricks.begin()+29);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+35);
+        bricks.erase(bricks.begin()+36);
+        bricks.erase(bricks.begin()+37);
+        bricks.erase(bricks.begin()+40);
+    }
+    else if (levelNb == 3){
+        bricks.erase(bricks.begin()+6);
+        bricks.erase(bricks.begin()+6);
+        bricks.erase(bricks.begin()+6);
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+8);
+        bricks.erase(bricks.begin()+10);
+        bricks.erase(bricks.begin()+10);
+        bricks.erase(bricks.begin()+10);
+        bricks.erase(bricks.begin()+17);
+        bricks.erase(bricks.begin()+18);
+        bricks.erase(bricks.begin()+20);
+        bricks.erase(bricks.begin()+21);
+        bricks.erase(bricks.begin()+28);
+        bricks.erase(bricks.begin()+28);
+        bricks.erase(bricks.begin()+28);
+        bricks.erase(bricks.begin()+30);
+        bricks.erase(bricks.begin()+30);
+        bricks.erase(bricks.begin()+30);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+32);
+    }
+    else if (levelNb == 4){
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+1);
+        bricks.erase(bricks.begin()+1);
+        bricks.erase(bricks.begin()+1);
+        bricks.erase(bricks.begin()+3);
+        bricks.erase(bricks.begin()+3);
+        bricks.erase(bricks.begin()+6);
+        bricks.erase(bricks.begin()+15);
+        bricks.erase(bricks.begin()+19);
+        bricks.erase(bricks.begin()+28);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+35);
+        bricks.erase(bricks.begin()+35);
+        bricks.erase(bricks.begin()+35);
+        bricks.erase(bricks.begin()+37);
+        bricks.erase(bricks.begin()+37);
+        bricks.erase(bricks.begin()+37);
+        bricks.erase(bricks.begin()+37);
+    }
+    else if (levelNb == 5){
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+3);
+        bricks.erase(bricks.begin()+18);
+        bricks.erase(bricks.begin()+21);
+        bricks.erase(bricks.begin()+21);
+        bricks.erase(bricks.begin()+21);
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+22);
+        bricks.erase(bricks.begin()+23);
+        bricks.erase(bricks.begin()+23);
+        bricks.erase(bricks.begin()+23);
+        bricks.erase(bricks.begin()+26);
+        bricks.erase(bricks.begin()+41);
+        bricks.erase(bricks.begin()+44);
+    }
+    else if (levelNb == 6){
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+0);
+        bricks.erase(bricks.begin()+11);
+        bricks.erase(bricks.begin()+11);
+        bricks.erase(bricks.begin()+11);
+        bricks.erase(bricks.begin()+11);
+        bricks.erase(bricks.begin()+13);
+        bricks.erase(bricks.begin()+17);
+        bricks.erase(bricks.begin()+18);
+        bricks.erase(bricks.begin()+20);
+        bricks.erase(bricks.begin()+21);
+        bricks.erase(bricks.begin()+25);
+        bricks.erase(bricks.begin()+32);
+        bricks.erase(bricks.begin()+33);
+        bricks.erase(bricks.begin()+35);
+        bricks.erase(bricks.begin()+36);
+        bricks.erase(bricks.begin()+38);
+        bricks.erase(bricks.begin()+39);
     }
 }
