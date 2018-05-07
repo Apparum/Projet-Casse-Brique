@@ -36,6 +36,8 @@ private slots:
     void on_playButton_clicked();
     void on_decreasePuckSize_clicked();
     void on_increasePuckSize_clicked();
+    void on_nextLevel_clicked();
+    void on_previousLevel_clicked();
 };
 
 #endif // BREAKOUT_H

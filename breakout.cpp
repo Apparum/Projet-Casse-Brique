@@ -124,3 +124,15 @@ void Breakout::on_increasePuckSize_clicked()
     ui->openGLWidget->setPuck(puck);
     ui->openGLWidget->updateGL();
 }
+
+void Breakout::on_nextLevel_clicked()
+{
+    ui->openGLWidget->generateLevel(ui->openGLWidget->getLevel() + 1);
+    ui->openGLWidget->updateGL();
+}
+
+void Breakout::on_previousLevel_clicked()
+{
+    ui->openGLWidget->generateLevel(ui->openGLWidget->getLevel() - 1);
+    ui->openGLWidget->updateGL();
+}

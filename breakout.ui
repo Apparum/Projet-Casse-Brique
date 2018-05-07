@@ -87,6 +87,20 @@
          <number>0</number>
         </property>
         <item>
+         <widget class="QPushButton" name="previousLevel">
+          <property name="text">
+           <string>Previous level</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="nextLevel">
+          <property name="text">
+           <string>Next level</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="decreasePuckSize">
           <property name="text">
            <string>Decrease puck size</string>
