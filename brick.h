@@ -18,7 +18,7 @@ public:
     // Methode d'affichage
     void display() const;
 
-    //Accesseurs
+    // Getters & Setters
     float getX(){return x_;}
     float getY(){return y_;}
     float getdX(){return dx_;}

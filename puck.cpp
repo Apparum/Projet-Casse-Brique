@@ -60,7 +60,6 @@ void Puck::move(float x){
 }
 
 void Puck::init(){
-    dx_ = 6, dy_ = 1, dz_ = 1;
     x_ = -dx_/2, y_ = -10, z_ = 0;
     Vx_ = 0;
 }

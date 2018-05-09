@@ -66,6 +66,7 @@ void Breakout::getCamPic(){
     arrowedLine(frame2,workingCenter,p,Scalar(255,255,255),2);
     swap(frameRect1,frameRect2);
     ui->labelCam->setPixmap(QPixmap::fromImage(QImage(frame2.data, frame2.cols, frame2.rows,frame2.step, QImage::Format_RGB888)));
+    ui->labelCam->setScaledContents(true);
     ui->openGLWidget->setVect(vect_);
 
     // Update button

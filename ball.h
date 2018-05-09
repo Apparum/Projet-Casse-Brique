@@ -18,7 +18,7 @@ public:
     // Movement
     void move();
 
-    // Accesseur
+    // Getters & Setters
     void setVx(float Vx){Vx_=Vx;}
     void setVy(float Vy){Vy_=Vy;}
     float getX(){return x_;}

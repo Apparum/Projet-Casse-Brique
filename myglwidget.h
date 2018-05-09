@@ -34,7 +34,7 @@ public:
     void bounceBrick(int dir);
     void generateLevel(int level);
 
-    //Accesseurs
+    // Getters & Setters
     int getLevel() {return level;}
     void setVect(Point vect){vect_ = vect;}
     void setGameState(int state) {gameState = state;}
