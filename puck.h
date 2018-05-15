@@ -6,13 +6,13 @@
 class Puck
 {
 public:
-    // Constructeur avec parametres
+    // Constructor of a puck instance
     Puck();
 
-    // Destructeur
+    // Destructor of a puck instance
     virtual ~Puck();
 
-    // Methode d'affichage
+    // Display the puck at its coords
     void display() const;
 
     // Getters & Setters
@@ -22,14 +22,16 @@ public:
     float getdY(){return dy_;}
     void setdX(float dx);
 
-    // Méthodes
+    // Methods
+    // Move the puck of a given amount x
     void move(float x);
+    // Initialize the puck at a specific place
     void init();
+
 private:
-    // Paramètres
-    float dx_ = 6, dy_ = 1, dz_ = 1;
-    float x_ = -dx_/2, y_ = -10, z_ = 0;
-    float Vx_ = 0;
+    float dx_ = 6, dy_ = 1, dz_ = 1; // Size of the puck
+    float x_ = -dx_/2, y_ = -10, z_ = 0; // Position of the puck
+    float Vx_ = 0; // Horizontal speed of the puck
 };
 
 #endif // PUCK_H

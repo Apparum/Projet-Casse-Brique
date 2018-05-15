@@ -1,19 +1,24 @@
 #include "ball.h"
 
+/** Create a new Quadric
+ * @brief Ball::Ball
+ */
 Ball::Ball()
 {
-    // Creation de la quadrique
     ball_=gluNewQuadric();
 }
 
-
+/** Destroy the quadric
+ * @brief Ball::~Ball
+ */
 Ball::~Ball()
 {
-    // Destruction de la quadrique
     gluDeleteQuadric(ball_);
 }
 
-
+/** Display the ball at x_,y_,z_ coords.
+ * @brief Ball::display
+ */
 void Ball::display()
 {
     float color[] = {1.0,0.0,0.0};
@@ -24,11 +29,17 @@ void Ball::display()
     glPopMatrix();
 }
 
+/** Move the ball of Vx_ and Vy_
+ * @brief Ball::move
+ */
 void Ball::move(){
     x_ += Vx_;
     y_ += Vy_;
 }
 
+/** Initialize the ball parameters
+ * @brief Ball::init
+ */
 void Ball::init(){
     x_ = 0;
     y_ = -5;

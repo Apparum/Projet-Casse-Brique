@@ -5,17 +5,16 @@
 
 using namespace std;
 
-// Classe dediee pour la gestion d'une brique
 class Brick
 {
 public:
-    // Constructeur avec parametres
+    // Constructor of the brick, having the coords and the color of the brick
     Brick(float x, float y, int R, int G, int B);
 
-    // Destructeur
+    // Destructor of the brick instance
     virtual ~Brick();
 
-    // Methode d'affichage
+    // Display the brick at the corresponding coords
     void display() const;
 
     // Getters & Setters
@@ -25,10 +24,9 @@ public:
     float getdY(){return dy_;}
 
 private:
-    // Paramètres
-    float x_,y_,z_ = 0;
-    float dx_ = 2, dy_ = 1, dz_ = 2;
-    int R_,G_,B_;
+    float x_,y_,z_ = 0; // Position of the brick
+    float dx_ = 2, dy_ = 1, dz_ = 2; // Size of the brick
+    int R_,G_,B_; // Color of the brick
 };
 
 

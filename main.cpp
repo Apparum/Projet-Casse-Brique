@@ -4,6 +4,7 @@
 
 int main(int argc, char *argv[])
 {
+    // Prepare the random seed
     srand(time(NULL));
     QApplication a(argc, argv);
     Breakout w;

@@ -6,16 +6,16 @@
 class Ball
 {
 public:
-    // Constructeur avec parametres
+    // Constructor of an instance of Ball
     Ball();
 
-    // Destructeur
+    // Destructor of an instance of Ball
     virtual ~Ball();
 
-    // Methode d'affichage
+    // Display the ball at x_,y_,z_ coords.
     void display();
 
-    // Movement
+    // Move the ball of Vx_ and Vy_
     void move();
 
     // Getters & Setters
@@ -27,15 +27,15 @@ public:
     float getVy(){return Vy_;}
     float getR(){return r_;}
 
+    // Initialize the ball
     void init();
 
 private:
-    // Paramètres
-    GLUquadric * ball_;
-    float x_ = 0, y_ = -5, z_ = 0;
-    float r_ = 0.5;
-    float Vx_ = (float)(rand()%1000 - 500)/(float)10000;
-    float Vy_ = 0.08;
+    GLUquadric * ball_; // Ball Quadric
+    float x_ = 0, y_ = -5, z_ = 0; // Initial position
+    float r_ = 0.5; // Ball radius
+    float Vx_ = (float)(rand()%1000 - 500)/(float)10000; // Horizontal speed (initialized with a random speed)
+    float Vy_ = 0.08; // Vertical speed
 };
 
 #endif // BALL_H
