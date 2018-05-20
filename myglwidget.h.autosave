@@ -15,6 +15,7 @@
 using namespace cv;
 using namespace std;
 
+// Authors : Dorian PERY and Miray ANDRIAMIARANTSOANAVALONA
 class MyGLWidget : public QGLWidget{
 
     Q_OBJECT
@@ -28,15 +29,15 @@ public:
     QTimer gameTimer_;
 
     // Methods
-    // Display a wall at a position (x1,y1) with certain dimension (dx,dy,dz) and the color (color1,color2,color3)
+    // Display a wall at a position (x1,y1) with certain dimension (dx,dy,dz) and the color (color1,color2,color3) by Miray
     void displayWall(float x1, float dx, float y1, float dy, float color1, float color2, float color3, float dz);
-    // Initialize the game parameters
-    void initGame();
-    // Make the ball bounce on the puck
+    // Initialize the game parameters by Miray
+    void initGame(); 
+    // Make the ball bounce on the puck by Dorian
     void bouncePuck();
-    // Make the ball bounce on a brick given the direction it's coming from
+    // Make the ball bounce on a brick given the direction it's coming from by Dorian
     void bounceBrick(int dir);
-    // Generate a level given its ID
+    // Generate a level given its ID by Miray
     void generateLevel(int level_);
 
     // Getters & Setters

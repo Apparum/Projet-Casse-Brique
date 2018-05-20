@@ -236,6 +236,7 @@ void MyGLWidget::bouncePuck(){
 }
 
 /** Make the brick bounce in the right direction
+ * Inspired from http://rembound.com/articles/the-breakout-tutorial-with-cpp-and-sdl-2
  * @brief MyGLWidget::bounceBrick
  * @param dir : the incoming direction of the ball (0: Left, 1: Top, 2: Right, 3: Bottom)
  */

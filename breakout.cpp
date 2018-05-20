@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <iostream>
 
+
 using namespace cv;
 using namespace std;
 
@@ -81,14 +82,14 @@ void Breakout::updateGame(){
 
     // Check endGame
     if (ui_->openGLWidget->getGameState() == 1){
-        ui_->playButton->setText("Rejouer ?");
+        ui_->playButton->setText("Play Again ?");
         ui_->openGLWidget->setGameState(3);
         ui_->openGLWidget->updateGL();
     }
 
     // Check winGame
     if (ui_->openGLWidget->getGameState() == 2){
-        ui_->playButton->setText("Niveau suivant !");
+        ui_->playButton->setText("Next Level !");
         ui_->openGLWidget->setGameState(4);
         ui_->openGLWidget->updateGL();
     }
